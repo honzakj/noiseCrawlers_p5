@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'ROBOTO';
+}
+
+.button {
+    width: 86px;
+    height: 86px;
+    border-radius: 86px;
+    z-index: 10;
+    border: none;
+    margin-right: 15px;
+
+}
+
+.clickable {
+    background: rgba(0,0,0,0.8);
+    cursor: pointer;
+    color: #fff;
+
+}
+
+.clickable:hover {
+    scale: 1.04;
+}
+
+.flexCC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    background-color: #262626;
+    background-size: 100vw 100vh;
+    background-position: center center;
+    z-index: 2;
+}
+
+.setWrap {
+    justify-content: space-between;
+    position: fixed;
+    padding: 25px;
+    width: 100vw;
+    box-sizing: border-box;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+.imgPrev {
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.imgNav .imgPrev:hover + .overlay {
+    display: block;
+}
+
+
+.slidersWrap{
+    height: 100%;
+    width: 250px;
+    flex-direction: column;
+}
+
+.sliderWrap {
+    height: 100%;
+    width: 250px;
+    flex-direction: column;
+}

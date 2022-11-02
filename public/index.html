@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.js"></script>
+<script type="text/javascript" src="./sketches/particlesDrawing/edit/sketchEdit_p5.js"></script>
+<script type="text/javascript" src="./sketches/particlesDrawing/edit/classes/particle.js"></script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="setWrap flexCC">
+
+    <div class="imgNav flexCC">
+    <div class="imgPrev button flexCC" ></div>
+    <div class="overlay"></div> 
+
+    <input type="file" id="imgUpload" onchange="uploadImg(this.files[0])" accept="image/png, image/jpeg, image/jpg">
+    <label for="imgUpload" class="imgUpload button clickable flexCC">Upload</label>
+    <div class="saveImg button clickable flexCC" onclick="saveImg()">Save</div>
+    <input class="noiseSlider" name = "noise" type="range" min="0" max="500" onchange="changeParam('noise')">
+    <label for="noise">NOISE RESOLUTION</label>
+
+    </div>
+
+    <div class="particleSet flexCC">
+    <div class="slidersWrap flexCC">
+        <div class="sliderWrap flexCC">
+        <input class="particleSlider" name = "amount" type="range" min="0" max="50" onchange="changeParam('amount')">
+        <label for="amount">PARTICLES AMOUNT</label>
+        </div>
+
+        <div class="sliderWrap flexCC">
+        <input class="sizeSlider" name = "size" type="range" min="1.01" max="15" onchange="changeParam('size')">
+        <label for="size">PARTICLE SIZE</label>
+         </div>
+
+         <div class="sliderWrap flexCC">
+            <input class="speedSlider" name = "speed" type="range" min="0" max="5" onchange="changeParam('speed')">
+            <label for="speed">PARTICLE SPEED</label>
+             </div>
+    </div>
+
+    <button class="button clickable" onclick="initCanvas()">RESET</button>
+</div>
+</div>
+</body>
+</html>
