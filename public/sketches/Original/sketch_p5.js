@@ -1,6 +1,6 @@
 var particles = []
 var colors = ["#3DB2FF","#FFB830","#FF2442","#FF7600","#185ADB","#0A1931","#99154E"]
-var n, s, maxR
+var n, s, maxR 
 function setup() {
 	createCanvas(windowWidth, windowHeight)
 	initCanvas()
