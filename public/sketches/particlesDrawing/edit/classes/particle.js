@@ -2,11 +2,10 @@
 
 class Particle {
   
-  constructor(maxR_, s_, c_, speed_) {
+  constructor(maxR_, s_, c_) {
     this.particleSize = s_
     this.color = c_
     this.maxR = maxR_
-    this.speed = speed_
     
     this.life = random(60,150)    
     this.init()
@@ -30,7 +29,7 @@ class Particle {
   move() {
     var angle = noise((this.pos.x + noisePosition) / noiseRes, (this.pos.y + noisePosition)/ noiseRes) * TAU
     this.vel.set(cos(angle), sin(angle))
-    this.vel.mult(float(this.speed))
+    this.vel.mult(float(speedMultiplier))
     this.pos.add(this.vel)
     
   }

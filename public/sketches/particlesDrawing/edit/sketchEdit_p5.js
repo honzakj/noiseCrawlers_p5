@@ -3,6 +3,7 @@ const colors = ["#3DB2FF","#FFB830","#FF2442","#FF7600","#185ADB","#0A1931","#99
 var noiseRes;
 var particleNo;
 var speedMultiplier;
+var imgThreshold;
 
 const originalPic = './img/img.jpg'
 var currentPic;
@@ -19,6 +20,8 @@ var maxR;
 /////////////////////////////STATIC PART
 function setup() {
 	createCanvas(windowWidth, windowHeight);
+	document.getElementsByClassName('thresholdSlider')[0].value = 0.1;
+
 	loadImg(originalPic)
 	var timeout;
 
@@ -61,11 +64,11 @@ function saveImg() {
 	saveCanvas('img','jpg')
 }
 
-function prepImg(type) {
+function prepImg() {
 	effectors = []
 	img.loadPixels()
 	img.resize(width, height)
-	img.filter(THRESHOLD, 0.2)
+	img.filter(THRESHOLD, float(imgThreshold))
 	img.loadPixels()
 
 for(let y = 0; y < height; y++) {
@@ -89,6 +92,11 @@ function changeParam(type) {
 		noiseRes =  document.getElementsByClassName('noiseSlider')[0].value
 	} else if (type === 'speed') {
 		speedMultiplier = document.getElementsByClassName('speedSlider')[0].value
+	} else if (type === 'threshold') {
+		imgThreshold = document.getElementsByClassName('thresholdSlider')[0].value
+		
+		loadImg(currentPic)
+		
 	}
 
 }
@@ -102,8 +110,7 @@ function initCanvas() {
 	speedMultiplier = document.getElementsByClassName('speedSlider')[0].value
 	particleNo = document.getElementsByClassName('particleSlider')[0].value
 	noiseRes =  document.getElementsByClassName('noiseSlider')[0].value
-
-
+	imgThreshold = document.getElementsByClassName('thresholdSlider')[0].value
 	maxR = width
 
 }
@@ -131,7 +138,7 @@ function initParticles() {
 	let color = colors[int(random(colors.length))]
 	
 	for(let i = 0; i < particleNo; i++) {
-		particles.push(new Particle(maxR, particleSize, color, speedMultiplier))
+		particles.push(new Particle(maxR, particleSize, color))
 	}
 }
 
