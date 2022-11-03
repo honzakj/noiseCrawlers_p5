@@ -30,7 +30,7 @@ class Particle {
   move() {
     var angle = noise((this.pos.x + noisePosition) / noiseRes, (this.pos.y + noisePosition)/ noiseRes) * TAU
     this.vel.set(cos(angle), sin(angle))
-    this.vel.mult(this.speed)
+    this.vel.mult(float(this.speed))
     this.pos.add(this.vel)
     
   }
